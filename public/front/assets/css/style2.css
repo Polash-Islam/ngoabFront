@@ -1,0 +1,522 @@
+
+.login-card {
+    border: 1px solid #575757;
+    border-radius: 36px;
+    padding: 50px;
+    background: white;
+    margin-left: 100px;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+
+.login-image {
+    object-fit: cover;
+    width: 110%;
+    border-radius: 36px;
+    height: 100%;
+
+}
+
+.btn-outline-secondary {
+    width: 119px;
+    gap: 4px;
+    border-radius: 50px;
+    border-width: 1px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+
+}
+
+.btn-success {
+    gap: 4px;
+    border-radius: 50px;
+    border-width: 1px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    background-color: #016E69;
+    color: white;
+}
+
+.btn-outline-secondary:hover, .btn-success:hover {
+    background-color: #016E69;
+    color: white;
+}
+
+.nav-centered {
+    justify-content: center;
+}
+
+.nav-pills .nav-link {
+    position: relative;
+    color: #000;
+}
+
+.nav-pills .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #016E69;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-pills .nav-link:hover::after,
+.nav-pills .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+
+.custom-input {
+    width: 100%;
+    height: 60.75px;
+    border-radius: 17.75px;
+    border: 0.74px solid #ccc;
+    padding: 0 20px;
+}
+
+.second-login {
+    width: 100%;
+    height: 60.75px;
+    border-radius: 17px;
+}
+
+
+.register-btn {
+    display: inline-block;
+    background-color: #F5F5F5;
+    color: #016E69;
+    padding: 18px 17px;
+    border-radius: 73.96px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    border: none;
+}
+
+/*.register-btn {*/
+/*    gap: 4px;*/
+/*    border-radius: 50px;*/
+/*    border-width: 1px;*/
+/*    background-color: #016E69;*/
+/*    color: white;*/
+/*    padding: 10px 30px;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.register-btn:hover {*/
+/*    background-color: #e0e0e0;*/
+/*}*/
+
+
+/*nibondhon payment invoice design start*/
+.invoice-box {
+    max-width: 700px;
+    padding: 30px;
+    border: 1px solid #eee;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    line-height: 24px;
+    color: #555;
+}
+
+.invoice-box h4 {
+    text-align: center;
+    color: #333;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.invoice-box table td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+}
+
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.heading td {
+    background: #eee;
+    font-weight: bold;
+}
+
+.invoice-box table tr.total td {
+    font-weight: bold;
+    border-top: 2px solid #eee;
+}
+
+/*nibondhon payment invoice design end*/
+
+/*Frontend upper header css start*/
+
+
+/* CSS */
+
+
+.header_right_text .button-sign:hover {
+    transform: translateY(0px) !important;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #36395A;
+}
+
+.header_right_text .lang_active_button {
+    background-color: #1E075E;
+    color: white;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #1e075e 0 -3px 0 inset;
+}
+
+.header_left_side h1 {
+    font-size: 22px;
+    margin: .7em 0 .3em 0;
+    display: inline-block;
+    color: white !important;
+}
+
+.header_left_side img {
+    max-width: 55px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.header_right_text h1 {
+    text-align: right;
+    font-size: 14px;
+    margin: .7em 0 .3em 0;
+    color: white !important;
+}
+
+
+.second_header {
+    background-color: #D9D9D9;
+}
+
+.second_header_box {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header_right_text .button-sign {
+    background-color: #28a745 !important;
+    padding: 8px 15px !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+    transition: background-color 0.3s ease;
+    color: white !important;
+    text-decoration: none;
+}
+
+
+.header_right_text .button-sign:hover,
+.header_right_text .button-sign:focus {
+    background-color: #218838 !important;
+    color: #fff !important;
+}
+
+.dropdown-menu {
+    min-width: 150px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    background-color: #ffffff !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.dropdown-item {
+    font-weight: 500 !important;
+    padding: 10px 16px !important;
+    color: #333 !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #e9f5ee !important; /* Light green background */
+    color: #28a745 !important;
+}
+
+
+.header_right_text {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    min-width: 150px;
+    font-size: 14px;
+}
+
+.dropdown_label_active {
+    background-color: #e9f5ee !important;
+    color: #28a745 !important;
+}
+
+.dropdown-header {
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 767px) {
+    .header_right_text .row > div {
+        margin-bottom: 10px;
+        text-align: right;
+    }
+}
+
+/*Ngo Profile css start */
+
+.profile_right {
+    width: 80%;
+    height: 100%;
+    padding: 0px 20px 20px 20px;
+    background-color: #fff;
+}
+
+.profile-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-left {
+    flex: 1;
+    max-width: 250px;
+    text-align: center;
+}
+
+.profile-left img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 4px solid #eee;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.profile-right {
+    flex: 2;
+}
+
+.profile-form-group {
+    margin-bottom: 20px;
+}
+
+.profile-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.update-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.update-btn:hover {
+    background-color: #218838;
+}
+
+.profile-form-group input:focus {
+    border: 1px solid #28a745;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-right {
+        width: 100%;
+    }
+}
+
+.ngo-info-box {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/*Ngo Profile css end */
+
+/*Ngo Profile Tab Start*/
+.profile_right .tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.profile_right .tabs button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.profile_right .tabs button.active {
+    border-bottom: 2px solid #28a745;
+    color: #28a745;
+}
+
+.profile_right .tab-content {
+    display: none;
+}
+
+.profile_right .tab-content.active {
+    display: block;
+}
+
+/*Ngo Profile Tab End*/
+
+
+/*Frontend upper header css end*/
+
+
+/*ngo dashboard css start*/
+.ngo_dashboard_right {
+    width: 80%;
+    height: 100%;
+    padding: 0px 20px 20px 20px;
+    background-color: #fff;
+}
+
+.ngo-dashboard {
+    padding: 40px 20px;
+    background-color: #f9fdfd;
+    border: 1px solid #d6e4e4;
+    border-radius: 10px;
+}
+
+.dashboard-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dashboard-content h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.dashboard-content .lead {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.badge-incomplete {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.nibondhon-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.nibondhon-btn:hover {
+    background-color: #218838;
+    color: white;
+}
+
+/*ngo dashboard css end*/
+
+
+
+
+
+
+
+
+
+
+
+
+

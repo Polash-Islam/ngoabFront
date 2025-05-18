@@ -1,0 +1,270 @@
+<?php
+$fdOneFormId = DB::table('fd_one_forms')->where('user_id',Auth::user()->id)->value('id');
+                        $ngoMemberLists = DB::table('ngo_member_lists')->where('fd_one_form_id',$fdOneFormId)->latest()->get();
+
+
+                        ?>
+
+
+                    <div class="committee_container active">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div class="p-2">
+                                <h5>{{ trans('ngo_member.ngo_member_list')}}</h5>
+                            </div>
+                            <div class="p-2">
+                                <button class="btn btn-primary btn-custom" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalef" >
+                                    {{ trans('form 8_bn.add')}}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <table class="table table-bordered mt-2 custom_table">
+                                    <tr>
+                                        <th>{{ trans('form 8_bn.sl')}}</th>
+                                        <th>{{ trans('form 8_bn.name')}} & {{ trans('form 8_bn.designation')}}</th>
+                                        <th>{{ trans('form 8_bn.date_of_birth')}}</th>
+                                        <th>{{ trans('form 8_bn.address')}}</th>
+
+                                        <th>{{ trans('form 8_bn.action')}}</th>
+                                    </tr>
+                                    @foreach($ngoMemberLists as $key=>$main_all_data_list)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $main_all_data_list->member_name }} <br> <span class="text-success">{{ trans('form 8_bn.designation')}}:</span>
+                                            {{ $main_all_data_list->member_designation }}
+                                        </td>
+                                        <td>
+                                            <?php
+
+                                            $newDate12 = date("d-m-Y", strtotime($main_all_data_list->member_dob ));
+
+                                                                                            ?>
+
+
+@if(session()->get('locale') == 'en')
+
+
+{{ App\Http\Controllers\NGO\CommonController::englishToBangla($newDate12)}}
+
+
+@else
+
+    {{ $newDate12 }}
+@endif
+
+
+
+
+                                        </td>
+                                        <td><span>{{ trans('form 8_bn.present_address')}}:</span>  {{ $main_all_data_list->member_present_address }} <br>
+                                            <span>{{ trans('form 8_bn.permanent_address')}}:</span>  {{ $main_all_data_list->member_permanent_address }}
+                                        </td>
+
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $main_all_data_list->id}}"><i
+                                                            class="bi bi-pencil-fill"></i></button>
+
+                                                            <div class="modal modal-xl fade" id="exampleModal{{ $main_all_data_list->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">{{ trans('ngo_member.ngo_member')}}</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="card">
+                                                                                <div class="card-body">
+                                                                                    <form method="post" action="{{ route('ngoMember.update',$main_all_data_list->id ) }}" enctype="multipart/form-data" id="form" data-parsley-validate="">
+
+                                                                                        @csrf
+                                                                                        @method('PUT')
+                                                                                        <div class="row">
+                                                                                            <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.name')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" data-parsley-required name="name" value="{{ $main_all_data_list->member_name }}"   class="form-control" id="">
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.designation')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" data-parsley-required name="desi" value="{{ $main_all_data_list->member_designation }}" class="form-control" id="">
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.date_of_birth')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" data-parsley-required name="dob" value="{{ $main_all_data_list->member_dob }}" class="form-control" id="datepicker">
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.nid_no')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" data-parsley-required name="nid_no" value="{{ $main_all_data_list->member_nid_no }}"  class="form-control" id="">
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.mobile_no')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="number" data-parsley-required minlength="11" value="{{ $main_all_data_list->member_mobile }}"  maxlength="11" name="phone" class="form-control" id="">
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.fathers_name')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" data-parsley-required name="father_name" value="{{ $main_all_data_list->member_father_name }}" class="form-control" id="">
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.present_address')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" class="form-control"  data-parsley-required name="present_address" value="{{ $main_all_data_list->member_present_address }}" id="exampleFormControlTextarea1"
+                                                                                                          rows="2"/>
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.permanent_address')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" class="form-control" data-parsley-required value="{{ $main_all_data_list->member_permanent_address }}"  name="permanent_address"  id="exampleFormControlTextarea1"
+                                                                                                          rows="2"/>
+                                                                                            </div>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                                                                <label for="" class="form-label">{{ trans('ngo_member.name_of_spouse')}} <span class="text-danger">*</span> </label>
+                                                                                                <input type="text" data-parsley-required name="name_supouse" class="form-control" value="{{ $main_all_data_list->member_name_supouse }}" id="">
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <button type="submit" class="btn btn-registration"
+                                                                                        >{{ trans('form 8_bn.update')}}
+                                                                                 </button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                <button type="button" onclick="deleteTag({{ $main_all_data_list->id}})" class="btn btn-sm btn-danger"><i
+                                                            class="bi bi-trash"></i></button>
+
+                                                            <form id="delete-form-{{ $main_all_data_list->id }}" action="{{ route('ngoMember.destroy',$main_all_data_list->id) }}" method="POST" style="display: none;">
+
+                                                                @csrf
+@method('DELETE')
+                                                            </form>
+
+
+                                                <button id="dcmember_id{{ $main_all_data_list->id }}" class="btn btn-success btn-sm" type="button"
+                                                        data-bs-toggle="offcanvas"
+                                                        data-bs-target="#offcanvasWithBothOptions"
+                                                        aria-controls="offcanvasWithBothOptions"><i
+                                                            class="bi bi-eye-fill"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal modal-xl fade" id="exampleModalef" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ trans('ngo_member.ngo_member')}}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form method="post" action="{{ route('ngoMember.store') }}" enctype="multipart/form-data" id="form" data-parsley-validate="">
+
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.name')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" data-parsley-required name="name"  class="form-control" id="">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.designation')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" data-parsley-required name="desi" class="form-control" id="">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.date_of_birth')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" data-parsley-required name="dob" class="form-control" id="datepicker1">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.nid_no')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" data-parsley-required name="nid_no"  class="form-control" id="">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.mobile_no')}} <span class="text-danger">*</span> </label>
+                                                        <input type="number" data-parsley-required minlength="11" maxlength="11" name="phone" class="form-control" id="">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.fathers_name')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" data-parsley-required name="father_name" class="form-control" id="">
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.present_address')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control"  data-parsley-required name="present_address" id="exampleFormControlTextarea1"
+                                                                  rows="2"/>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.permanent_address')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control" data-parsley-required  name="permanent_address"  id="exampleFormControlTextarea1"
+                                                                  rows="2"/>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                        <label for="" class="form-label">{{ trans('ngo_member.name_of_spouse')}} <span class="text-danger">*</span> </label>
+                                                        <input type="text" data-parsley-required name="name_supouse" class="form-control" id="">
+                                                    </div>
+
+                                                </div>
+                                                <button type="submit" class="btn btn-registration"
+                                                >{{ trans('form 8_bn.add')}}
+                                         </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" offcanvas offcanvas-end" style="width:40vw !important" data-bs-scroll="true" tabindex="-1"
+                         id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">{{ trans('form 8_bn.personal_info')}}</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="committee_profile" id="main_content_table">
+
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+
+                            //new_cat_n
+
+
+                            $("[id^=dcmember_id]").click(function(){
+
+                                //alert(3);
+
+                                var main_id = $(this).attr('id');
+                           var id_for_pass = main_id.slice(11);
+
+
+                           $.ajax({
+                            url: "{{ route('ngoMemberView') }}",
+                            method: 'GET',
+                            data: {id_for_pass:id_for_pass},
+                            success: function(data) {
+                              $("#main_content_table").html('');
+                              $("#main_content_table").html(data);
+                            }
+                            });
+
+                            });
+                            });
+
+
+
+                    </script>
