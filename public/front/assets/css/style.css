@@ -1737,11 +1737,13 @@ section.section {
 
 .dashboard_left {
     width: 20%;
-    background-color: #006A4E;
-    padding-top: 20px;
-    padding-right: 30px;
+    background-color: #fff;
+    /*padding-top: 20px;*/
+    /*padding-right: 30px;*/
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    border : 1px solid #ddd;
+    border-radius: 10px;
 }
 
 .dashboard_left ul li {
@@ -1751,17 +1753,39 @@ section.section {
 }
 
 
-.dashboard_left ul .active_link {
-    background-color: #28a745 !important;
+.dashboard_left ul .active_link  {
+    background-color: #00A651 !important;
     border-radius: 10px;
+
+}
+.dashboard_left ul .active_link a {
+    color : white ;
+
 }
 
 .dashboard_left ul li a {
 
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 14px;
-    padding-left: 10px;
+    padding-left: 20px;
+
+}
+
+.dashboard_left li:hover {
+    background-color: #00A651;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dashboard_left li:hover a {
+    color: white;
+}
+
+.dashboard_left ul{
+
+    padding-left: 0px;
+
 }
 
 .dashboard_right {

@@ -350,6 +350,7 @@ class OtherformController extends Controller
         }
 
 
+
         $data['divisionList'] = DB::table('civilinfos')->groupBy('division_bn')->select('division_bn')->get();
 
 //            dd($ngoLanguage);
