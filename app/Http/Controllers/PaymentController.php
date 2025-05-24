@@ -17,6 +17,7 @@ use Exceptio\SonaliPayment\Http\Dtos\CreditInformationDto;
 
 class PaymentController extends Controller
 {
+
     public function makePayment()
     {
 
@@ -79,6 +80,7 @@ class PaymentController extends Controller
             ]);
         }
     }
+
     public function renewPaymentCheckout(Request $request)
     {
         $sonaliPayment = new SonaliPaymentController();
@@ -187,7 +189,6 @@ class PaymentController extends Controller
         $data['ngo_list_all'] = FdOneForm::where('user_id', Auth::user()->id)->first();
         return view('front/payment/renew_payment_success', $data);
     }
-
 
     // new payment method
     public function processPayment(Request $request)
@@ -300,6 +301,7 @@ class PaymentController extends Controller
 
     public function verifyTransaction($token, $mode)
     {
+        return view('front.payment.success');
         // API 3.4 call
         $response = Http::withHeaders([
             'Authorization' => 'Basic ZHVVc2VyMjAxNDE6ZHVVc2VyUGF5bWVudDIwMTQ=',
