@@ -14,6 +14,11 @@ return [
     |
     */
 
+    'sonalipay' => [
+        'base_url' => env('SONALIPAY_BASE_URL'),
+        'auth_header' => env('SONALIPAY_AUTH_HEADER'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

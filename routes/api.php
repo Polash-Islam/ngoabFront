@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BaseController;
 use App\Http\Controllers\Api\MainController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\IPNController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,3 +56,5 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('ipn', [IPNController::class, 'IPN']);
