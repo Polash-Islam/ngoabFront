@@ -300,7 +300,8 @@ class OtherformController extends Controller
 //            if ($first_form_check == 1) {
 //            return redirect('ngoAllRegistrationForm');
 //            return redirect()->route('ngoNibondhonPayment');
-            return redirect()->route('doCheckout');
+//            return redirect()->route('doCheckout');
+            return redirect()->route('payment.process');
 //            } else {
 //                return redirect('ngoRegistrationFirstInfo');
 //            }

@@ -234,6 +234,13 @@ Route::controller(OtherformController::class)->group(function () {
     Route::get('/payment/callback', [PaymentController::class, 'paymentCallback'])->name('sonali-payment.callback');
     Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 
+    // payment update route
+//    Route::get('/payment/initiate', [PaymentController::class, 'initiateForm'])->name('payment.initiate');
+    Route::get('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
+    Route::get('/payment/response', [PaymentController::class, 'paymentResponse'])->name('payment.response');
+    Route::get('/transaction/verify/{token}/{mode}', [PaymentController::class, 'verifyTransaction'])->name('transaction.verify');
+    Route::get('/payment/success/{id}', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+
     // Renew Payment Route
     Route::get('renew/payment/checkout', [PaymentController::class, 'renewPaymentCheckout'])->name('renewPaymentCheckout');
     Route::get('renew/payment/success', [PaymentController::class, 'renewPaymentSuccess'])->name('renew.payment.success');
