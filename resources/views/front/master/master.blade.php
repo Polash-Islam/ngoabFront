@@ -22,7 +22,7 @@
     <link href="{{ asset('/') }}public/front/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ asset('/') }}public/front/assets/vendor/slick-slider/slick.css" rel="stylesheet">
 
-{{--    <link href="{{ asset('/') }}public/front/assets/css/select2.min.css" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('/') }}public/front/assets/css/select2.min.css" rel="stylesheet">--}}
     <link href="{{ asset('/') }}public/front/assets/css/select2/select2.min.css" rel="stylesheet">
 
     {{--    <link href="{{ asset('/') }}public/front/assets/vendor/select2/css/select2.min.css" rel="stylesheet">--}}
@@ -30,9 +30,10 @@
 
     @stack('css_lib')
     <!-- Template Main CSS File -->
-    <link href="{{ asset('/') }}public/front/assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('/') }}public/front/assets/css/p_style.css" rel="stylesheet">
     <link href="{{ asset('/') }}public/front/assets/css/style2.css" rel="stylesheet">
     <link href="{{ asset('/') }}public/front/assets/css/responsive_style.css" rel="stylesheet">
+    <link href="{{ asset('/') }}public/front/assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/') }}public/front/assets/vendor/fontawesome4.7.0/css/font-awesome.min.css">
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nokshaia/angkur@latest/PublicFonts/Nikosh/stylesheet_Normal_DisplaySwap.css"/> --}}
@@ -202,9 +203,7 @@
 @include('front.include.header')
 
 <!-- ======= Slider Section ======= -->
-
 @if(Route::is('login') || Route::is('emailVerifyPage')  || Route::is('emailVerifiedPage')  || Route::is('checkStatusRegFrom')  || Route::is('statusPage') || Route::is('register') || Route::is('ngoInstructionPage') || Route::is('ngoRegistrationFeeList'))
-
     @if(Route::is('login'))
         <div class="faq_header_box">
             <div class="container">
@@ -581,13 +580,12 @@
 
 <script>
 
-   $(document).ready(function (){
-       $('.select2').select2({
-           selectOnClose: true,
-           width: '100%'
-       });
-   })
-
+    $(document).ready(function () {
+        $('.select2').select2({
+            selectOnClose: true,
+            width: '100%'
+        });
+    })
 
 
 </script>
@@ -663,6 +661,13 @@
             $("#pageloader").fadeIn();
         });//submit
     });//document ready
+
+    $(document).ready(function(){
+        $('.dropdown-toggle').click(function(){
+            $(this).toggleClass('active');
+            $(this).next('.submenu').slideToggle();
+        });
+    });
 </script>
 
 <script>

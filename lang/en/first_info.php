@@ -48,6 +48,8 @@ return [
   'reg_status'=>'নিবন্ধন স্ট্যাটাস',
   'reg_status_badge'=>'অসম্পূর্ণ',
   'nibondhon_btn_text'=>'নিবন্ধন করুন',
+  'ngo_profile'=>'এনজিও প্রোফাইল',
+  'bank_info'=>'ব্যাংক একাউন্ট তথ্য',
 ];
 
 

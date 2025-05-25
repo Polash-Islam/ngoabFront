@@ -6,11 +6,7 @@
             class="fa fa-user pe-1" aria-hidden="true"></i>{{ trans('first_info.profile')}}</a></li>
 
 <?php
-
-
 $ngo_type = DB::table('ngo_type_and_languages')->where('user_id', Auth::user()->id)->value('ngo_type');
-
-
 ?>
 
 @if(empty($ngo_type))
@@ -102,31 +98,31 @@ $ngo_type = DB::table('ngo_type_and_languages')->where('user_id', Auth::user()->
 @endif
 
 @if(empty($get_reg_id))
-{{--    <li class="{{ Route::is('regSubmitList')  ? 'active_link' : '' }}"><a href="{{ route('regSubmitList') }}"> <i--}}
-{{--                class="fa fa-file-excel-o pe-1 dashboard_icon" aria-hidden="true"></i>--}}
+    {{--    <li class="{{ Route::is('regSubmitList')  ? 'active_link' : '' }}"><a href="{{ route('regSubmitList') }}"> <i--}}
+    {{--                class="fa fa-file-excel-o pe-1 dashboard_icon" aria-hidden="true"></i>--}}
 
-{{--            @if($foreignNgoType == 'Old')--}}
-{{--                {{ trans('reg_sub.reg_sub1')}} aaa--}}
-{{--            @else--}}
-{{--                {{ trans('reg_sub.reg_sub')}} --}}
+    {{--            @if($foreignNgoType == 'Old')--}}
+    {{--                {{ trans('reg_sub.reg_sub1')}} aaa--}}
+    {{--            @else--}}
+    {{--                {{ trans('reg_sub.reg_sub')}} --}}
 
-{{--            @endif--}}
+    {{--            @endif--}}
 
 
-{{--        </a></li>--}}
+    {{--        </a></li>--}}
 @else
-{{--    <li class="{{ Route::is('regSubmitList')  ? 'active_link' : '' }}"><a href="{{ route('regSubmitList') }}"> <i--}}
-{{--                class="fa fa-file-excel-o pe-1 dashboard_icon" aria-hidden="true"></i>--}}
+    {{--    <li class="{{ Route::is('regSubmitList')  ? 'active_link' : '' }}"><a href="{{ route('regSubmitList') }}"> <i--}}
+    {{--                class="fa fa-file-excel-o pe-1 dashboard_icon" aria-hidden="true"></i>--}}
 
 
-{{--            @if($foreignNgoType == 'Old')--}}
-{{--                {{ trans('reg_sub.reg_sub1')}}--}}
-{{--            @else--}}
-{{--                {{ trans('reg_sub.reg_sub')}}--}}
+    {{--            @if($foreignNgoType == 'Old')--}}
+    {{--                {{ trans('reg_sub.reg_sub1')}}--}}
+    {{--            @else--}}
+    {{--                {{ trans('reg_sub.reg_sub')}}--}}
 
-{{--            @endif--}}
+    {{--            @endif--}}
 
-{{--        </a></li>--}}
+    {{--        </a></li>--}}
 
 @endif
 

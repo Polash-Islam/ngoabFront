@@ -48,5 +48,7 @@ return [
     'reg_status'=>'Registration Status',
     'reg_status_badge'=>'Incomplete',
     'nibondhon_btn_text'=>'Register Now',
+    'ngo_profile'=>'Ngo Profile',
+    'bank_info'=>'Bank Account Information',
 ];
 
